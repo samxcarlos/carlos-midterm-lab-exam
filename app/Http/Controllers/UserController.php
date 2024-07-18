@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class user extends Controller
+use Illuminate\Support\Facades\Route;
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        return view('users.index');
         //
     }
 
@@ -19,7 +20,7 @@ class user extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -27,7 +28,7 @@ class user extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
@@ -35,7 +36,8 @@ class user extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data['id'] = $id;
+        return view('users.show', $data);
     }
 
     /**
@@ -43,7 +45,8 @@ class user extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['id'] = $id;
+        return view('users.edit', $data);
     }
 
     /**
@@ -51,7 +54,7 @@ class user extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $request->all();
     }
 
     /**
@@ -59,6 +62,6 @@ class user extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        return 'Delete data with the id of ' . $id;
     }
 }
